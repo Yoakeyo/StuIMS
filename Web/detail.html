@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-cn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息</title>
+    <link rel="stylesheet" href="/static/detail.css">
+</head>
+
+<body>
+    <table cellspacing="0" border="1" cellpadding="0" width="99%" align="center" style="text-align:center">
+                            <tbody>
+                                                            <tr>
+                                    <th colspan="10" align="center" class="stu_head" style="font:700 30px/35px '宋体';
+    background-color: rgb(64, 82, 138);
+    border-radius: 5px;
+    box-shadow:0 4px 12px rgba(14,14,14,0.12);
+    text-shadow: 2px 2px 4px black;
+    height:60px;
+    color:#FFF;">----学生信息查询结果----</th>
+                                </tr>
+                                <tr>
+                                    <th class="">特征码</th>
+                                    <th class="">姓名</th>
+                                    <th class="">性别</th>
+                                    <th class="">年龄</th>
+                                    <th class="">学号</th>
+                                    <th class="">籍贯</th>
+                                    <th class="">电话号码</th>
+                                    <th class="">电子邮箱</th>
+                                    <th class="">操作</th>
+                                    <th>操作</th>
+                                </tr>
+                                <!-- 将数据写入表中 -->
+                                {% for info in detail_info %}
+                                <tr>
+                                    <td>{{ info.id }}</td>
+                                    <td>{{ info.Stu_name }}</td>
+                                    <td>{{ info.Stu_sex }}</td>
+                                    <td>{{ info.Stu_age }}</td>
+                                    <td>{{ info.Stu_code }}</td>
+                                    <td>{{ info.Stu_ID }}</td>
+                                    <td>{{ info.Stu_place }}</td>
+                                    <td>{{ info.Tel_No }}</td>
+                                    <td>{{ info.Email }}</td>
+
+                                    <td>
+                                        <form action="detail/">
+                                            <a href="/del_stu/?nid={{ info.id }}" onClick="return confirm('确认吗?')">删除</a>
+<!--                                            被注释掉的是一个传递参数的请求-->
+<!--                                            <a href="/detail/?nid={{ info.id }}&name={{ info.Stu_name }}&sex={{ info.Stu_sex }}&age={{ info.Stu_age }}&ID={{ info.Stu_ID }}&place{{ info.Stu_place }}&stu_id={{ info.Stu_code }}&email={{ info.Email }}&phone={{ info.Tel_No }}">修改</a>-->
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+    </tbody>
+
+     </table>
+    <br><hr><br>
+                           <div class="Detail" style="text-align: right;" id="edit">
+                        <form method="post">
+                            <table cellspacing="0" border="0" cellpadding="0" width="99%" align="center">
+                                <tr>
+                                    <th colspan="4" align="center" class="stu_head" style="    font:700 30px/35px '宋体';
+    background-color: rgb(64, 82, 138);
+    border-radius: 5px;
+    box-shadow:0 4px 12px rgba(14,14,14,0.12);
+    text-shadow: 2px 2px 4px black;
+    height:60px;
+    color:#FFF;">----学生信息修改----</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" align="left" class="">
+                                        <input type="text" placeholder="输入特征码*(必填)" value="{{ nid }}"
+                                            style="text-align:center;font-size:24px;" name="FCode">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">姓名:</td>
+                                    <td class=""><input type="text" placeholder="输入姓名" name="name" value="{{ stu_info.Stu_name }}"></td>
+                                    <td class="">年龄:</td>
+                                    <td class=""><input type="text" placeholder="输入年龄" name="age" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td class="">性别:</td>
+                                    <td class="">
+                                        <select name="sex">
+                                            <option value="none">-- 请选择性别 --</option>
+                                            <option value="男">男</option>
+                                            <option value="女">女</option>
+                                        </select>
+                                    </td>
+                                    <td class="">学号:</td>
+                                    <td class=""><input value="" type="text" placeholder="输入学号" name="stu_id"></td>
+                                </tr>
+                                <tr>
+                                    <td class="">身份证号:</td>
+                                    <td class=""><input value="" type="text" placeholder="输入身份证号" name="ID"></td>
+                                    <td class="">专业:</td>
+                                    <td class="">
+                                        <select name="pro">
+                                            <option value="none">-- 请选择专业 --
+                                            </option>
+                                            <option value="电气自动化">电气自动化系</option>
+                                            <option value="机械工程系">机械工程系</option>
+                                            <option value="经济管理系">经济管理系</option>
+                                            <option value="建筑工程系">建筑工程系</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">籍贯:</td>
+                                    <td colspan="3" align="left">
+                                        <input value="" type="text" placeholder="输入籍贯" name="place">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">手机号码:</td>
+                                    <td class=""><input value="" type="text" placeholder="输入电话号码" name="phone"></td>
+                                    <td class="">电子邮箱:</td>
+                                    <td class=""><input value="" type="text" placeholder="输入电子邮箱" name="email"></td>
+                                </tr>
+                            </table>
+                            <div class="buttons">
+                                <input class="button" type="submit" value="确认" name="sub"
+                                    onClick="return confirm('确认吗?')" />
+                                <input class="button" type="reset" value="重新输入" onClick="return confirm('确认吗?')" />
+                            </div>
+                        </form>
+                    </div>
+</body>
+
+</html>

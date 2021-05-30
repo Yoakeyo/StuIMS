@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改信息</title>
+    <script src="/static/jQuery/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <style>
+    function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+    function change_value(){
+        var nid = getQueryVariable(Stu_name)
+        var i=document.getElementById("FCode");
+        alert( i.value);
+        i.value= nid
+    }
+
+    </style>
+</head>
+
+<body>
+    <br><hr><br>
+
+                           <div class="Detail" style="text-align: right;" id="edit">
+                        <form method="post">
+                            <table cellspacing="0" border="0" cellpadding="0" width="99%" align="center">
+                                <tr>
+                                    <td colspan="4" align="center"  style="font:700 30px/35px '宋体';">----学生信息修改----</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" align="left" class="">
+                                        <input id="FCode" type="text" placeholder="输入特征码*(必填)"
+                                            style="text-align:center;font-size:24px;" name="FCode" >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">姓名:</td>
+                                    <td class=""><input type="text" placeholder="输入姓名" name="name" value="{{ i.Stu_name }}"></td>
+                                    <td class="">年龄:</td>
+                                    <td class=""><input type="text" placeholder="输入年龄" name="age" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td class="">性别:</td>
+                                    <td class="">
+                                        <select name="sex">
+                                            <option value="none">-- 请选择性别 --</option>
+                                            <option value="男">男</option>
+                                            <option value="女">女</option>
+                                        </select>
+                                    </td>
+                                    <td class="">学号:</td>
+                                    <td class=""><input value="" type="text" placeholder="输入学号" name="stu_id"></td>
+                                </tr>
+                                <tr>
+                                    <td class="">身份证号:</td>
+                                    <td class=""><input value="" type="text" placeholder="输入身份证号" name="ID"></td>
+                                    <td class="">专业:</td>
+                                    <td class="">
+                                        <select name="pro">
+                                            <option value="none">-- 请选择专业 --
+                                            </option>
+                                            <option value="电气自动化">电气自动化系</option>
+                                            <option value="机械工程系">机械工程系</option>
+                                            <option value="经济管理系">经济管理系</option>
+                                            <option value="建筑工程系">建筑工程系</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">籍贯:</td>
+                                    <td colspan="3" align="left">
+                                        <input value="" type="text" placeholder="输入籍贯" name="place">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">手机号码:</td>
+                                    <td class=""><input value="" type="text" placeholder="输入电话号码" name="phone"></td>
+                                    <td class="">电子邮箱:</td>
+                                    <td class=""><input value="" type="text" placeholder="输入电子邮箱" name="email"></td>
+                                </tr>
+                            </table>
+                            <div class="buttons">
+                                <input class="button" type="submit" value="确认" name="sub"
+                                    onClick="return confirm('确认吗?')" />
+                                <input class="button" type="reset" value="重新输入" onClick="return confirm('确认吗?')" />
+                            </div>
+                        </form>
+
+                    </div>
+
+</body>
+</html>

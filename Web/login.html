@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="/static/login.css">
+</head>
+
+
+
+<body>
+    <div class="body">
+        <div class="login">
+            <div class="title">
+                <h3>欢迎您</h3>
+            </div>
+            <form method="post" action="/login/">
+                <div class="login_area">
+                    <div class="user">
+                        <span class="icon_user"></span>
+                        <input type="text" placeholder="请输入账户名" name="user">
+                    </div>
+                    <div class="pwd">
+                        <span class="icon_pwd"></span>
+                        <input type="password" placeholder="请输入密码" name="pwd">
+                    </div>
+                    <div class="sub">
+                        <input type="submit" value="登录" class="btn_sub">
+                    </div>
+                    <p style="font:700 24px '宋体';color:#FFF;text-align:center;">{{ error }}</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
