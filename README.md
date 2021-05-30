@@ -1,5 +1,5 @@
 # StuIMS
- ##学生信息管理系统(Python WEB版)
+ ## 学生信息管理系统(Python WEB版)
 
 
  
